@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
-  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="UserMacros">
+    <OPENCV_BASE_DIR>D:\DEV_EXEC\libs\opencv\build</OPENCV_BASE_DIR>
+  </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalLibraryDirectories>D:\DEV\opencv\build\x64\vc16\lib;C:\DEV\opencv\build\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world4120.lib;opencv_world4120d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OPENCV_BASE_DIR)\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_world500.lib;opencv_world500d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\DEV\opencv\build\include;C:\DEV\opencv\build\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OPENCV_BASE_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BuildMacro Include="OPENCV_BASE_DIR">
+      <Value>$(OPENCV_BASE_DIR)</Value>
+    </BuildMacro>
+  </ItemGroup>
 </Project>
